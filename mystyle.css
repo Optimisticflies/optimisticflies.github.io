@@ -1,5 +1,9 @@
 body {
   background-color: grey
+  background-image: url('barri.webp');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
 }
 
 
