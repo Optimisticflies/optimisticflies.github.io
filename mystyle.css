@@ -11,6 +11,11 @@ color: red;
   margin-left: 20px;
 }
 
+h2 {
+color: lightred;
+  font-size: 5px;
+}
+
 p {
 color: pink;
   margin-left: 15 px;
