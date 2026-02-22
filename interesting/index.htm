@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Password Protected Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding-top: 50px;
+    }
+    #protectedContent {
+        display: none; 
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        width: 50%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="password"], button {
+        padding: 10px;
+        margin: 5px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Enter Password to View Page</h2>
+<input type="password" id="passwordInput" placeholder="Enter password">
+<button onclick="checkPassword()">Submit</button>
+
+<div id="protectedContent">
+    <h1>Secret</h1>
+    <p>test</p>
+</div>
+
+<script>
+    // Change this to your desired password
+    const correctPassword = "pineapple";
+
+    function checkPassword() {
+        const enteredPassword = document.getElementById("passwordInput").value;
+        if (enteredPassword === correctPassword) {
+            document.getElementById("protectedContent").style.display = "block";
+        } else {
+            alert("Incorrect password. Try again.");
+        }
+    }
+</script>
+
+</body>
+</html>
