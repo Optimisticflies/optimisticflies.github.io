@@ -1,5 +1,5 @@
 body {
-  background-image: url('/assets/oversaturatedhallway.jpg');
+  background-image: url('https://www.lamerzone.net/assets/oversaturatedhallway.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: 100% 100%;
@@ -20,4 +20,8 @@ p {
 color: pink;
   margin-left: 15 px;
 }
-  
+
+center {
+color: white;
+
+}
