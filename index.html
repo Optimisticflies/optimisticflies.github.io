@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    .scroll-left {
+ height: 50px;	
+ overflow: hidden;
+ position: relative;
+ background: #000000;
+ color: #bbbbbb;
+ border: 1px solid orange;
+}
+.scroll-left p {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ transform:translateX(100%);
+ animation: scroll-left 15s linear infinite;
+}
+@keyframes scroll-left {
+ 0%   {
+ transform: translateX(100%); 		
+ }
+ 100% {
+ transform: translateX(-100%); 
+ }
+}
 p.dotted {border-style: dotted;}
 p.dashed {border-style: dashed;}
 p.solid {border-style: solid;}
@@ -46,6 +72,9 @@ background-color: black;
 </style>
     <body>
 <head>
+    <div class="scroll-left">
+    <p class="terminal"> Weekly news: o7 for the yaoi corner, those who know... where are we gonna read yaoi now? :( </p> 
+    </div>
 <title>Lamerzone.net - since Lamezone was taken :3</title>
 <link rel="stylesheet" href="mystyle.css">
 
