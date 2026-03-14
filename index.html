@@ -3,30 +3,26 @@
 <html lang="en">
 <style>
 .scroll-left {
-  height: 35px;            
-  overflow: hidden;        
+  height: 35px;
+  overflow: hidden;
   position: relative;
-  background: #000000;
-  color: #bbbbbb;
-  font-size: 18px;         
-  line-height: 35px;       
+  background: #000;
+  color: #bbb;
 }
+
 .scroll-left span {
   position: absolute;
-  white-space: nowrap;       
-  display: inline-block;     
-  line-height: 35px;        
-  transform: translateX(100%);
+  white-space: nowrap;      
+  display: inline-block;    
+  top: 50%;                  
+  transform: translate(100%, -50%);
+  font-size: 18px;        
   animation: scroll-left 15s linear infinite;
 }
 
 @keyframes scroll-left {
- 0%   {
- transform: translateX(100%); 		
- }
- 100% {
- transform: translateX(-100%); 
- }
+  0%   { transform: translate(100%, -50%); }
+  100% { transform: translate(-100%, -50%); }
 }
 p.dotted {border-style: dotted;}
 p.dashed {border-style: dashed;}
