@@ -319,6 +319,22 @@ function flashEffect() {
 
 setTimeout(flashEffect, randomInterval(30, 500));
 </script>
+<script>
+let buffer = "";
 
+document.addEventListener("keydown", (e) => {
+  // only accept real character keys (ignores Shift, Ctrl, etc.)
+  if (e.key.length === 1) {
+    buffer += e.key.toLowerCase();
+
+    // keep only last 6 characters
+    buffer = buffer.slice(-6);
+
+    if (buffer === "heaven") {
+      window.location.href = "https://www.lamerzone.net/heaven";
+    }
+  }
+});
+</script>
 </body>
 </html>
