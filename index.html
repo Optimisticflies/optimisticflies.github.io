@@ -68,6 +68,90 @@ background-color: black;
 
 </style>
     <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lamerzone: digital vomit :3</title>
+<link rel="stylesheet" href="https://lamerzone.net/mystyle.css">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    transition: none; 
+    zoom: 200%;
+  }
+
+  .scroll-left {
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    color: #bbb;
+  }
+
+  .scroll-left span {
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    top: 50%;
+    transform: translate(100%, -50%);
+    font-size: 18px;
+    animation: scroll-left 15s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translate(100%, -50%); }
+    100% { transform: translate(-100%, -50%); }
+  }
+
+  .a { border: 6px grey; border-style: groove; }
+
+  .terminal {
+    background-color: #000000;
+    color: #bbbbbb;
+    font-family: "Courier New", Courier, monospace;
+    padding: 15px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .rainbow {
+    background: linear-gradient(0deg,
+    rgba(255,0,0,1) 0%,
+    rgba(241,255,0,1) 36%,
+    rgba(0,142,255,1) 71%,
+    rgba(251,0,255,1) 91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  table.GeneratedTable {
+    width: 769px;
+    background-color: #000000;
+    border-collapse: separate;
+    border-width: 7px;
+    border-color: #bd5b00;
+    border-style: inset;
+    color: #ff0000;
+  }
+
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 7px;
+    border-color: #bd5b00;
+    border-style: inset;
+    padding: 1px;
+  }
+
+  table.GeneratedTable thead {
+    background-color: #ff9500;
+  }
+</style>
+</head>
+
 <head>
     <div class="scroll-left">
     <span class="terminal">weekly news: guh.... uhhh apparently new miku design or something, but mainly... guh</span> 
@@ -212,3 +296,28 @@ table.GeneratedTable thead {
 <section id="isso-thread">
     <noscript>Javascript needs to be activated to view comments.</noscript>
 </section>
+
+<script>
+function randomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+}
+
+function flashEffect() {
+  const main = document.getElementById('main-page');
+
+  // invert ON
+  main.style.filter = "invert(1) hue-rotate(180deg)";
+
+  setTimeout(() => {
+    // invert OFF
+    main.style.filter = "none";
+
+    setTimeout(flashEffect, randomInterval(30, 500));
+  }, 1000);
+}
+
+setTimeout(flashEffect, randomInterval(30, 500));
+</script>
+
+</body>
+</html>
