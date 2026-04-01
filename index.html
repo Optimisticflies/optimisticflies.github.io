@@ -2,6 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+ #watermark {
+   position: fixed; 
+   bottom: 10px; 
+   right: 10px; 
+   opacity: 0.2;
+   font-size: 24px; 
+   color: gray; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+
 .scroll-left {
   height: 35px;
   overflow: hidden;
@@ -291,7 +303,9 @@ table.GeneratedTable thead {
 
     
 <p style="font-size: 12px;"> For enquiwies, pwease emaiw enquiwies@lamerzone.net :3</p>
-<script data-isso="https://comments.lamerzone.net/"
+<img  src="https://www.lamerzone.net/assets/resz-spinlogo.gif" id="watermark""></img> <br>  
+
+  <script data-isso="https://comments.lamerzone.net/"
         src="https://comments.lamerzone.net/js/embed.min.js"></script>
 
 <section id="isso-thread">
@@ -336,5 +350,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 </script>
+
 </body>
 </html>
