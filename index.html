@@ -95,7 +95,7 @@ background-color: black;
     zoom: 200%;
   }
 .invert-flash {
-  filter: invert(1) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg) contrast(1.5);
 }
  
   .scroll-left {
@@ -351,14 +351,14 @@ document.addEventListener("keydown", (e) => {
 </script>
 <script>
 function randomFlash() {
-  // random delay between 3000–10000 ms
-  const delay = Math.random() * (10000 - 3000) + 3000;
+  // random delay between 30000–500000 ms
+  const delay = Math.random() * (500000 - 30000) + 30000;
 
   setTimeout(() => {
     // add invert effect
     document.documentElement.classList.add("invert-flash");
 
-    // remove after 0.25s (250 ms)
+    // remove after 0.001s (1 ms)
     setTimeout(() => {
       document.documentElement.classList.remove("invert-flash");
       randomFlash(); // schedule next flash
