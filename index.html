@@ -94,7 +94,10 @@ background-color: black;
     transition: none; 
     zoom: 200%;
   }
-
+.invert-flash {
+  filter: invert(1) hue-rotate(180deg);
+}
+ 
   .scroll-left {
     height: 35px;
     overflow: hidden;
@@ -320,11 +323,9 @@ function randomInterval(min, max) {
 function flashEffect() {
   const main = document.getElementById('main-page');
 
-  // invert ON
   main.style.filter = "invert(1) hue-rotate(180deg)";
 
   setTimeout(() => {
-    // invert OFF
     main.style.filter = "none";
 
     setTimeout(flashEffect, randomInterval(30, 500));
@@ -337,11 +338,9 @@ setTimeout(flashEffect, randomInterval(30, 500));
 let buffer = "";
 
 document.addEventListener("keydown", (e) => {
-  // only accept real character keys (ignores Shift, Ctrl, etc.)
   if (e.key.length === 1) {
     buffer += e.key.toLowerCase();
 
-    // keep only last 6 characters
     buffer = buffer.slice(-6);
 
     if (buffer === "heaven") {
@@ -350,6 +349,26 @@ document.addEventListener("keydown", (e) => {
   }
 });
 </script>
+<script>
+function randomFlash() {
+  // random delay between 3000–10000 ms
+  const delay = Math.random() * (10000 - 3000) + 3000;
 
+  setTimeout(() => {
+    // add invert effect
+    document.documentElement.classList.add("invert-flash");
+
+    // remove after 0.25s (250 ms)
+    setTimeout(() => {
+      document.documentElement.classList.remove("invert-flash");
+      randomFlash(); // schedule next flash
+    }, 250);
+
+  }, delay);
+}
+
+// start the loop
+randomFlash();
+</script>
 </body>
 </html>
