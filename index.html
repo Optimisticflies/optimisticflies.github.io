@@ -352,14 +352,11 @@ document.addEventListener("keydown", (e) => {
 </script>
 <script>
 function randomFlash() {
-  // random delay between 30000–500000 ms
   const delay = Math.random() * (500000 - 30000) + 30000;
 
   setTimeout(() => {
-    // add invert effect
     document.documentElement.classList.add("invert-flash");
 
-    // remove after 0.001s (1 ms)
     setTimeout(() => {
       document.documentElement.classList.remove("invert-flash");
       randomFlash(); // schedule next flash
@@ -368,7 +365,6 @@ function randomFlash() {
   }, delay);
 }
 
-// start the loop
 randomFlash();
 </script>
     </body>
