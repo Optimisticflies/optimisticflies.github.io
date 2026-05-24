@@ -2,6 +2,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+ #main-page {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background: black;
+  color: white;
+
+  zoom: 200%;
+}
  #watermark2 {
    position: fixed; 
    bottom: 40px; 
@@ -92,16 +112,11 @@ rgba(251,0,255,1) 91%
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
-  body {
-    zoom: 200%; 
-}
-a:active {
-border: 10px grove black; 
-background-color: black; 
-}
+
 
 </style>
     <body>
+  <div id="main-page">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,5 +407,6 @@ function randomFlash() {
 
 randomFlash();
 </script>
+  </div>
     </body>
 </html>
