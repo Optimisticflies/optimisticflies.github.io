@@ -1,7 +1,185 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
+
+
+<div class="side-rail left-rail">
+    <div class="rail-track" id="left-track"></div>
+</div>
+
+<div class="side-rail right-rail">
+    <div class="rail-track reverse" id="right-track"></div>
+</div>
+
+<style>
+
+
+
+.side-rail {
+
+    position: fixed;
+
+    top: 0;
+
+    width: 220px;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.left-rail {
+    left: 0;
+}
+
+.right-rail {
+    right: 0;
+}
+
+
+
+.rail-track {
+
+    display: flex;
+
+    flex-direction: column;
+
+    animation: scrollDown 60s linear infinite;
+}
+
+.reverse {
+    animation: scrollUp 60s linear infinite;
+}
+
+
+
+.rail-image {
+
+    width: 200px;
+
+    margin: 8px auto;
+
+    display: block;
+
+    image-rendering: pixelated;
+
+    border: 2px solid #333;
+
+    opacity: 0.9;
+}
+
+
+
+center,
+table,
+.scroll-left,
+h1,
+h6,
+p,
+iframe,
+section {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+@keyframes scrollDown {
+
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes scrollUp {
+
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+
+    .side-rail {
+        display: none;
+    }
+}
+
+</style>
+
+<script>
+
+
+
+var total_images = 171;
+
+var png_images = [
+    1, 3, 4, 5, 6, 7, 8, 11,
+    155, 156, 157, 158, 159, 160,
+    161, 162, 163, 164, 165,
+    166, 167, 168, 169, 170, 171
+];
+
+function getRandomImage() {
+
+    var random_number =
+        Math.floor(Math.random() * total_images) + 1;
+
+    var extension =
+        png_images.includes(random_number)
+        ? "png"
+        : "JPG";
+
+    return "https://www.lamerzone.net/assets/photos/"
+        + random_number
+        + "."
+        + extension;
+}
+
+
+
+function populateRail(id, amount) {
+
+    var rail = document.getElementById(id);
+
+    for (var i = 0; i < amount; i++) {
+
+        var img = document.createElement("img");
+
+        img.src = getRandomImage();
+
+        img.className = "rail-image";
+
+        rail.appendChild(img);
+    }
+
+    /* duplicate for seamless looping */
+
+    rail.innerHTML += rail.innerHTML;
+}
+
+
+populateRail("left-track", 15);
+populateRail("right-track", 15);
+
+</script>
 <style>
  #watermark2 {
    position: fixed; 
@@ -192,7 +370,7 @@ background-color: black;
 
 <head>
     <div class="scroll-left">
-    <span class="terminal"> Weekly news: my new band believe... give me tickets... i beg...</span> 
+    <span class="terminal"> whee!!! whee!!!! whee!!!!!!!! i hate this</span> 
     </div>
 <title>Lamerzone.net - since Lamezone was taken :3</title>
 <link rel="stylesheet" href="https://lamerzone.net/mystyle.css">
@@ -312,6 +490,8 @@ table.GeneratedTable thead {
   <tbody>
     <tr>
       <td><font color="#bbbbbb"> <div class="terminal">
+                      <br>optimistic@lamerzone : ~# -- 24/5/26 whee!!! look at those photos go!!! i made scrolly things by looking shit up for ages and getting scared at how little good html i know!!!! i love stackoverflow!!!!!! but yeah it works now but it'll probably break if i prod at it so enjoy it whilst you can ladies  <br> 
+
                <br>optimistic@lamerzone : ~# -- 7/4/26 I took a lot of photos. i'm using them as background noise, and you can see the start of it in <a href="https://lamerzone.net/info">the info page</a> <br> 
        <br>optimistic@lamerzone : ~# -- 28/3/26 i understand what i'm gonna do for the design change now, i think. but first, i've added something. wait for 30-500 seconds on this site, see if you can notice it. this is only to be slightly more ambient/annoying :3 <br>
     <br>optimistic@lamerzone : ~# -- 14/3/26 for the past week, i've been trying to make this weekly new thing. i should change it weekly, but i may forget. i'm fkn tired, and it's not workint that well ----update now it works yay ig i am so tired <br>
