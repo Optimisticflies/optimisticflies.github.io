@@ -1,6 +1,16 @@
 <html lang="en"><head><style>body {transition: opacity ease-in 0.2s; } 
 body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style><style>.bg {
+</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style><style>
+    .panel {
+  display: none;
+}
+
+.panel:target {
+  display: block;
+}
+.bg {
   background-image: url("https://lamerzone.net/launchtesting/lpbackground.gif");
 
   height: 100%;
@@ -70,15 +80,10 @@ p {
 }
 
 
-div {
-  background-color: grey;
-  width: 500px;
-  padding: 25px;
-  margin: 300px;
-}
+
 </style>
 
 </head><body <a="" class="bg"> <center>
 <a>L                    A                    M                    E                    R                    Z                    O                    N                    E</a> <br> <br> <br> <br>   </center> 
-<img id="container" src="https://tse4.mm.bing.net/th/id/OIP.NDA1MzGEc6WP_16f0BdKggHaGG?rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3&amp;adlt=strict" style="width:474px; height:390px;">   <img id="container2" src="https://www.lamerzone.net/launchtesting/cartridgelinks.png" style="width: 902.5; height: 310;">
+<img id="container" href="#section1" src="https://tse4.mm.bing.net/th/id/OIP.NDA1MzGEc6WP_16f0BdKggHaGG?rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3&amp;adlt=strict" style="width:474px; height:390px;">  <div id="section1" class="panel"> <img id="container2" src="https://www.lamerzone.net/launchtesting/cartridgelinks.png" style="width: 902.5; height: 310;"> </div>
 </body></html>
