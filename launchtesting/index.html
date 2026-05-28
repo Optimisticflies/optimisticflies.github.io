@@ -1,4 +1,28 @@
 <html lang="en"><head><style>
+
+.cartridge-area {
+  position: relative;
+  width: 902px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.cartridge-links {
+  width: 902px;
+  height: 310px;
+  display: block;
+}
+
+.lamerzone-cartridge {
+  position: absolute;
+
+  top: 50px;
+  left: 250px;
+
+  width: 250px;
+  z-index: 10;
+}
+
     .panel {
   display: none;
 }
@@ -95,7 +119,19 @@ p {
 <!-- cartridge selections -->
 
 <div id="section1" class="panel">
-<img id="container2" src="https://www.lamerzone.net/launchtesting/cartridgelinks.png" style="width: 902.5; height: 310;">
+
+  <div class="cartridge-area">
+
+    <!-- bottom image -->
+    <img class="cartridge-links"
+    src="https://www.lamerzone.net/launchtesting/cartridgelinks.png">
+
+    <!-- overlapping images -->
+    <img class="lamerzone-cartridge"
+    src="https://www.lamerzone.net/launchtesting/lamerzonecartridge.png">
+
+  </div>
+
 </div>
 </body>
 </html>
