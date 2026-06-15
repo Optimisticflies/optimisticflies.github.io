@@ -1,5 +1,27 @@
 <html lang="en"><head><style>
+.cartridge {
+    cursor: pointer;
+}
 
+#boot-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background: black;
+}
+
+#boot-overlay img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
 .cartridge-area {
   position: relative;
   width: 1002px;
@@ -191,5 +213,10 @@ p {
 
 </div>
 
-
+<div id="boot-overlay">
+    <img
+        id="boot-gif"
+        src="boot-animation.gif"
+        alt="">
+</div>
 </body></html>
