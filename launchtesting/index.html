@@ -219,4 +219,96 @@ p {
         src="boot-animation.gif"
         alt="">
 </div>
+
+    <script>
+
+const CART_ANIMATION_TIME = 2500;
+const BOOT_GIF_TIME = 4000;
+
+const bootOverlay = document.getElementById("boot-overlay");
+const bootGif = document.getElementById("boot-gif");
+const dsi = document.getElementById("container");
+
+document.querySelectorAll(".cartridge").forEach(cart => {
+
+   cart.addEventListener("click", () => {
+
+       if (cart.dataset.busy) return;
+       cart.dataset.busy = "true";
+
+       const targetURL = cart.dataset.url;
+
+       const cartRect = cart.getBoundingClientRect();
+       const dsiRect = dsi.getBoundingClientRect();
+
+       /*
+        * Position where cartridge ends up.
+        * Adjust these numbers until it lines up
+        * with your cartridge slot.
+        */
+
+       const targetX =
+           dsiRect.left +
+           dsiRect.width / 2 -
+           cartRect.left -
+           cartRect.width / 2;
+
+       const targetY =
+           dsiRect.top +
+           20 -
+           cartRect.top;
+
+       cart.animate(
+           [
+               {
+                   transform: "translate(0,0) rotate(0deg)"
+               },
+
+               {
+                   transform:
+                       `translate(${targetX}px, ${targetY - 120}px)
+                       rotate(-10deg)`
+               },
+
+               {
+                   transform:
+                       `translate(${targetX}px, ${targetY}px)
+                       rotate(0deg)`
+               }
+           ],
+           {
+               duration: CART_ANIMATION_TIME,
+               easing: "ease-in-out",
+               fill: "forwards"
+           }
+       );
+
+       setTimeout(() => {
+
+           bootOverlay.style.display = "flex";
+
+           /*
+            * Restart GIF from frame 1
+            */
+
+           const gifURL =
+               bootGif.src.split("?")[0];
+
+           bootGif.src =
+               gifURL + "?v=" + Date.now();
+
+           setTimeout(() => {
+
+               window.location.href = targetURL;
+
+           }, BOOT_GIF_TIME);
+
+       }, CART_ANIMATION_TIME);
+
+   });
+
+});
+
+</script>
+
 </body></html>
