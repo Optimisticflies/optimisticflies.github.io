@@ -216,7 +216,14 @@ p {
 </div>
 
     <script>
+const DSI_NORMAL =
+    "https://www.lamerzone.net/launchtesting/1.jpg";
 
+const DSI_PARTIAL =
+    "https://www.lamerzone.net/launchtesting/partial.gif";
+
+const DSI_FILLED =
+    "https://www.lamerzone.net/filled.png";
 const CART_ANIMATION_TIME = 2500;
 const BOOT_GIF_TIME = 4000;
 
@@ -226,12 +233,14 @@ const dsi = document.getElementById("container");
 
 document.querySelectorAll(".cartridge").forEach(cart => {
 
-   cart.addEventListener("click", () => {
+cart.addEventListener("click", () => {
 
-       if (cart.dataset.busy) return;
-       cart.dataset.busy = "true";
+    if (cart.dataset.busy) return;
+    cart.dataset.busy = "true";
 
-       const targetURL = cart.dataset.url;
+    dsi.src = DSI_PARTIAL;   // <-- add this here
+
+    const targetURL = cart.dataset.url;
 
        const cartRect = cart.getBoundingClientRect();
        const dsiRect = dsi.getBoundingClientRect();
@@ -250,7 +259,7 @@ document.querySelectorAll(".cartridge").forEach(cart => {
 
        const targetY =
            dsiRect.top +
-           500 -
+           700 -
            cartRect.top;
 
        cart.animate(
@@ -261,7 +270,7 @@ document.querySelectorAll(".cartridge").forEach(cart => {
 
                {
                    transform:
-                       `translate(${targetX}px, ${targetY - 580}px)
+                       `translate(${targetX}px, ${targetY - 780}px)
                        rotate(-10deg)`
                },
 
@@ -278,29 +287,25 @@ document.querySelectorAll(".cartridge").forEach(cart => {
            }
        );
 
-       setTimeout(() => {
+setTimeout(() => {
 
-           bootOverlay.style.display = "flex";
+    cart.style.visibility = "hidden"; // or cart.style.display = "none";
+    dsi.src = DSI_FILLED;
 
-           /*
-            * Restart GIF from frame 1
-            */
+    setTimeout(() => {
 
-           const gifURL =
-               bootGif.src.split("?")[0];
+        bootOverlay.style.display = "flex";
 
-           bootGif.src =
-               gifURL + "?v=" + Date.now();
+        const gifURL = bootGif.src.split("?")[0];
+        bootGif.src = gifURL + "?v=" + Date.now();
 
-           setTimeout(() => {
+        setTimeout(() => {
+            window.location.href = targetURL;
+        }, BOOT_GIF_TIME);
 
-               window.location.href = targetURL;
+    }, 2000);
 
-           }, BOOT_GIF_TIME);
-
-       }, CART_ANIMATION_TIME);
-
-   });
+}, CART_ANIMATION_TIME);   });
 
 });
 
