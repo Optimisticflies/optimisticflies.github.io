@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--- ALL THE STYLES --->
+<style>
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+
+
+h1 { 
+color: red;
+  margin-left: 20px;
+}
+
+h2 {
+color: lightred;
+  font-size: 5px;
+}
+
+p {
+color: pink;
+  margin-left: 15 px;
+}
+  
+.rotated {
+    transform: rotate(45deg);
+}
+.rotated2 {
+    transform: rotate(78deg);
+}
+.rotated3 {
+    transform: rotate(203deg);
+}
+.rotated4 {
+    transform: rotate(165deg);
+}
+.side-rail {
+
+    position: fixed;
+
+    top: 0;
+
+    width: 220px;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.left-rail {
+    left: 0;
+}
+
+.right-rail {
+    right: 0;
+}
+
+
+
+.rail-track {
+
+    display: flex;
+
+    flex-direction: column;
+
+    animation: scrollDown 60s linear infinite;
+}
+
+.reverse {
+    animation: scrollUp 60s linear infinite;
+}
+
+
+
+.rail-image {
+
+    width: 200px;
+
+    margin: 8px auto;
+
+    display: block;
+
+    image-rendering: pixelated;
+
+    border: 2px solid #333;
+
+    opacity: 0.1;
+}
+
+
+
+center,
+table,
+.scroll-left,
+h1,
+h6,
+p,
+iframe,
+section {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+@keyframes scrollDown {
+
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes scrollUp {
+
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+
+    .side-rail {
+        display: none;
+    }
+}
+
+</style>
+
+<style>
+ #watermark2 {
+   position: fixed; 
+   bottom: 40px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 20px; 
+   color: black; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ } 
+html,body{
+    margin:0;
+    height:100%;
+}
+
+  #watermark3 {
+   position: fixed; 
+   bottom: 100px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 20px; 
+   color: black; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+ #watermark {
+   position: fixed; 
+   bottom: 10px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 24px; 
+   color: gray; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+
+.scroll-left {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  color: #bbb;
+}
+
+.scroll-left span {
+  position: absolute;
+  white-space: nowrap;      
+  display: inline-block;    
+  top: 50%;                  
+  transform: translate(100%, -50%);
+  font-size: 18px;        
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translate(100%, -50%); }
+  100% { transform: translate(-100%, -50%); }
+}
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+    .a {
+border: 6px grey; border-style: groove;
+}
+    .terminal {
+  background-color: #000000;
+  color: #bbbbbb;
+  font-family: "Courier New", Courier, monospace;
+  padding: 15px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.4;
+}
+    .rainbow {
+background: linear-gradient(0deg,
+rgba(255,0,0,1) 0%,
+rgba(241,255,0,1) 36%,
+rgba(0,142,255,1) 71%,
+rgba(251,0,255,1) 91%
+);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+  body {
+    zoom: 200%; 
+}
+a:active {
+border: 10px grove black; 
+background-color: black; 
+}
+
+</style>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    transition: none; 
+    zoom: 200%;
+  }
+.invert-flash {
+  filter: invert(1) hue-rotate(180deg) contrast(1.5);
+}
+ 
+  .scroll-left {
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    color: #bbb;
+  }
+
+  .scroll-left span {
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    top: 50%;
+    transform: translate(100%, -50%);
+    font-size: 18px;
+    animation: scroll-left 15s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translate(100%, -50%); }
+    100% { transform: translate(-100%, -50%); }
+  }
+
+  .a { border: 6px grey; border-style: groove; }
+
+  .terminal {
+    background-color: #000000;
+    color: #bbbbbb;
+    font-family: "Courier New", Courier, monospace;
+    padding: 15px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .rainbow {
+    background: linear-gradient(0deg,
+    rgba(255,0,0,1) 0%,
+    rgba(241,255,0,1) 36%,
+    rgba(0,142,255,1) 71%,
+    rgba(251,0,255,1) 91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  table.GeneratedTable {
+    width: 769px;
+    background-color: #000000;
+    border-collapse: separate;
+    border-width: 7px;
+    border-color: #332213;
+    border-style: inset;
+    color: #ff0000;
+  }
+
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 7px;
+    border-color: #332213;
+    border-style: inset;
+    padding: 1px;
+  }
+
+  table.GeneratedTable thead {
+    background-color: #400B35;
+  }
+</style>
+<!--- END OF ALL THE STYLES. we have too much :( -->
+
+
+
+
+
+
+<!-- AFEHAOIEFHUIASFHIUASEFHIUASEHFIUAEHSFIHASIFHAIEFHI AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA HELP ME-->
+
+
+
+
+
+
+
+
+
+
+<!--i made this part in microsoft notepad since i was genuinely fucking stupid back in the day-->
+
+
+<div id="P1" style="        display: none;">
+
+
+
+
+
+
+
+
+<div class="side-rail left-rail">
+    <div class="rail-track" id="left-track"></div>
+</div>
+
+<div class="side-rail right-rail">
+    <div class="rail-track reverse" id="right-track"></div>
+</div>
+
+
+
+<script>
+
+
+
+var total_images = 171;
+
+var png_images = [
+    1, 3, 4, 5, 6, 7, 8, 11,
+    155, 156, 157, 158, 159, 160,
+    161, 162, 163, 164, 165,
+    166, 167, 168, 169, 170, 171
+];
+
+function getRandomImage() {
+
+    var random_number =
+        Math.floor(Math.random() * total_images) + 1;
+
+    var extension =
+        png_images.includes(random_number)
+        ? "png"
+        : "JPG";
+
+    return "https://www.lamerzone.net/assets/photos/"
+        + random_number
+        + "."
+        + extension;
+}
+
+
+
+function populateRail(id, amount) {
+
+    var rail = document.getElementById(id);
+
+    for (var i = 0; i < amount; i++) {
+
+        var img = document.createElement("img");
+
+        img.src = getRandomImage();
+
+        img.className = "rail-image";
+
+        rail.appendChild(img);
+    }
+
+
+    rail.innerHTML += rail.innerHTML;
+}
+
+
+populateRail("left-track", 15);
+populateRail("right-track", 15);
+
+</script>
+<style>
+ #watermark2 {
+   position: fixed; 
+   bottom: 40px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 20px; 
+   color: black; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ } 
+ #watermark3 {
+   position: fixed; 
+   bottom: 100px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 20px; 
+   color: black; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+ #watermark {
+   position: fixed; 
+   bottom: 10px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 24px; 
+   color: gray; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+
+.scroll-left {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  color: #bbb;
+}
+
+.scroll-left span {
+  position: absolute;
+  white-space: nowrap;      
+  display: inline-block;    
+  top: 50%;                  
+  transform: translate(100%, -50%);
+  font-size: 18px;        
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translate(100%, -50%); }
+  100% { transform: translate(-100%, -50%); }
+}
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+    .a {
+border: 6px grey; border-style: groove;
+}
+    .terminal {
+  background-color: #000000;
+  color: #bbbbbb;
+  font-family: "Courier New", Courier, monospace;
+  padding: 15px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.4;
+}
+    .rainbow {
+background: linear-gradient(0deg,
+rgba(255,0,0,1) 0%,
+rgba(241,255,0,1) 36%,
+rgba(0,142,255,1) 71%,
+rgba(251,0,255,1) 91%
+);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+  body {
+    zoom: 200%; 
+}
+a:active {
+border: 10px grove black; 
+background-color: black; 
+}
+
+</style>
+    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    transition: none; 
+    zoom: 200%;
+  }
+.invert-flash {
+  filter: invert(1) hue-rotate(180deg) contrast(1.5);
+}
+ 
+  .scroll-left {
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    color: #bbb;
+  }
+
+  .scroll-left span {
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    top: 50%;
+    transform: translate(100%, -50%);
+    font-size: 18px;
+    animation: scroll-left 15s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translate(100%, -50%); }
+    100% { transform: translate(-100%, -50%); }
+  }
+
+  .a { border: 6px grey; border-style: groove; }
+
+  .terminal {
+    background-color: #000000;
+    color: #bbbbbb;
+    font-family: "Courier New", Courier, monospace;
+    padding: 15px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .rainbow {
+    background: linear-gradient(0deg,
+    rgba(255,0,0,1) 0%,
+    rgba(241,255,0,1) 36%,
+    rgba(0,142,255,1) 71%,
+    rgba(251,0,255,1) 91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  table.GeneratedTable {
+    width: 769px;
+    background-color: #000000;
+    border-collapse: separate;
+    border-width: 7px;
+    border-color: #332213;
+    border-style: inset;
+    color: #ff0000;
+  }
+
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 7px;
+    border-color: #332213;
+    border-style: inset;
+    padding: 1px;
+  }
+
+  table.GeneratedTable thead {
+    background-color: #400B35;
+  }
+</style>
+</head>
+
+<head>
+    <div class="scroll-left">
+    <span class="terminal"> weekly news: free! free! free! or not</span> 
+    </div>
+
+</head>
+<center>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<h1> --LAMERZONE.NET-- </H1>
+    <h6>        A NOOBRR production</h6>
+<p>\/ \/ \/ 𝓾𝓼𝓮𝓯𝓾𝓵 𝓵𝓲𝓷𝓴𝓼 \/ \/ \/</p>
+
+<br>
+  
+<a class="a" href="https://www.lamerzone.net/info"> So... what is this site? </a> <a class="a" href="https://www.lamerzone.net/info/story"> The story of Lamerzone </a> <a class="a" href="https://www.lamezone.net/"> Redirect back to the much better and cooler lamezone </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<style>
+table.GeneratedTable {
+  width: 769px;
+  background-color: #000000;
+border-collapse: separate;
+  border-width: 7px;
+  border-color: #494F52;
+  border-style: inset;
+  color: #143333;
+}
+
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 7px;
+  border-color: #436967;
+  border-style: inset;
+  padding: 1px;
+}
+
+table.GeneratedTable thead {
+  background-color: #184141;
+}
+</style>
+
+<br>
+
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><img src="https://lamerzone.net/assets/warning.png"></img><br></center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#ff00ba">
+<center>
+<br> This site is in a very early stage, with it barely being held together with gaffa tape and string. i am currently trying to make it better, but this will take a VERY LONG TIME. i will include a list of things to to below. <br>
+    <br>  -A̶d̶d̶ ̶i̶s̶s̶o̶ ̶c̶o̶m̶m̶e̶n̶t̶s̶ ̶(̶c̶u̶r̶r̶e̶n̶t̶l̶y̶ ̶b̶e̶i̶n̶g̶ ̶d̶o̶n̶e̶)̶   I ADDED IT CHECK THE BOTTOM OF THE PAGE
+    <br> -̶A̶d̶d̶ ̶a̶ ̶c̶h̶a̶n̶g̶e̶l̶o̶g̶
+    <br> -Redesign the entire site so it doesn't look like i did it in 10 minutes (which i definitely didn't...)
+    <br> -Finish off the <a href="https://sirinsyaoicorner.com" class="rainbow"> Sirin's yaoi corner </a> partnership and kickstarter <a style="color: red;" href="https://www.lamerzone.net/kickstarter" > (GIVE US MONEY VILE WORM) </a>
+    <br> -Maybe post some interesting stuff about the music i'm making, or the webcomic i'm doig
+    <br> -̶S̶t̶o̶p̶ ̶a̶d̶d̶i̶n̶g̶ ̶s̶t̶u̶p̶i̶d̶ ̶s̶t̶u̶f̶f̶ ̶i̶ ̶d̶o̶n̶'̶t̶ ̶n̶e̶e̶d̶ ̶a̶n̶y̶m̶o̶r̶e̶ ̶o̶n̶l̶i̶n̶e̶ ̶e̶m̶u̶l̶a̶t̶o̶r̶s̶
+    <br> -Do and post the webcomic (see story page) <br>
+    <br>
+    <br> <br>
+
+    
+</font>
+</center>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<img src="https://www.lamerzone.net/assets/slownotice.gif"></a>';
+                    random_img[0] = '<img src="https://www.lamerzone.net/assets/slownotice.gif"></a>';
+                    random_img[1] = '<img src="https://www.lamerzone.net/assets/fastnotice.gif"></a>';
+
+          document.write(random_img[random_number]);
+      </script>
+
+          </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#ff00ba">
+<center>
+    
+    <br> YOUR HELP IS NEEDED <br>
+
+    <br> DO YOU HAVE AN IDEA OF HOW TO DESIGN THIS SITE? PLEASE, I NEED TO OVERHAUL THIS AWFUL LOOKING PAGE AND COME UP WITH A GENUINE <p class="rainbow"> PREPPY AESTHETIC</p> TO THIS SITE. PLEASE. IT LOOKS SO ASS IT HURTS SOMETIMES. SAVE ME FROM RED ON GREY HELL.
+
+</font>
+</center> 
+</table>
+<br> <br> <br>
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><img src="https://lamerzone.net/assets/changelog_resz.png"></img><br></center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#bbbbbb"> <div class="terminal">
+                      <br>optimistic@lamerzone : ~# -- 24/5/26 whee!!! look at those photos go!!! i made scrolly things by looking shit up for ages and getting scared at how little good html i know!!!! i love stackoverflow!!!!!! but yeah it works now but it'll probably break if i prod at it so enjoy it whilst you can ladies  <br> 
+
+               <br>optimistic@lamerzone : ~# -- 7/4/26 I took a lot of photos. i'm using them as background noise, and you can see the start of it in <a href="https://lamerzone.net/info">the info page</a> <br> 
+       <br>optimistic@lamerzone : ~# -- 28/3/26 i understand what i'm gonna do for the design change now, i think. but first, i've added something. wait for 30-500 seconds on this site, see if you can notice it. this is only to be slightly more ambient/annoying :3 <br>
+    <br>optimistic@lamerzone : ~# -- 14/3/26 for the past week, i've been trying to make this weekly new thing. i should change it weekly, but i may forget. i'm fkn tired, and it's not workint that well ----update now it works yay ig i am so tired <br>
+       <br>optimistic@lamerzone : ~# -- 4/3/26 started work on the "people" page, along with fixing the broken info page.
+        <br>optimistic@lamerzone : ~# -- 2/3/26 removed all the games. these were cloggin up my repo, and i basically just added these for jokes. now i can get onto doing more serious and productive stuff on this site. <br>
+        <br>optimistic@lamerzone : ~# Finally, I've remembered to add a changelog. I don't know the dates for anything before 2/3/26, which is when i started. so, here we go! <br>
+        <br>optimistic@lamerzone : ~# -- about 2 weeks before last - - I ADDED ISSO COMMENTS! FINALLY, I SPENT THE £1.20 FOR THE VPS AND ADDED ISSO COMMENTS. Don't put anything innapropriate, since i will find you. <img src="https://lamerzone.net/assets/cursor.png"></img>
+
+
+      </div>
+</font>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+  
+<p style="font-size: 12px;"> For enquiwies, pwease emaiw enquiwies@lamerzone.net :3</p>
+<p style="font-size: 12px;"> also check out this epic bandcamp </p><iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/track=3068268814/size=small/bgcol=333333/linkcol=e32c14/transparent=true/" seamless><a href="https://isa-b.bandcamp.com/track/demo-1">demo 1 by isa-b</a></iframe>
+<A HREF="https://www.deathcult.fun/" id=watermark3>
+<IMG SRC="https://www.deathcult.fun/idcflogo.png" href="https://deathcult.fun" width=100 height=43.5>
+<br id=watermark3> Join The Cult </a></font> <img  src="https://www.lamerzone.net/assets/resz-spinlogo.gif" id="watermark""></img> <br>  
+<img src="https://www.lamerzone.net/assets/lamerzoneblinkiebutsobad.gif" id=watermark2> <br>
+    </center>
+
+  <script data-isso="https://comments.lamerzone.net/"
+        src="https://comments.lamerzone.net/js/embed.min.js"></script>
+
+<section id="isso-thread">
+    <noscript>Javascript needs to be activated to view comments.</noscript>
+</section>
+
+<script>
+function randomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+}
+
+function flashEffect() {
+  const main = document.getElementById('main-page');
+
+  main.style.filter = "invert(1) hue-rotate(180deg)";
+
+  setTimeout(() => {
+    main.style.filter = "none";
+
+    setTimeout(flashEffect, randomInterval(30, 500));
+  }, 500);
+}
+
+setTimeout(flashEffect, randomInterval(30, 500));
+</script>
+<script>
+let buffer = "";
+
+document.addEventListener("keydown", (e) => {
+  if (e.key.length === 1) {
+    buffer += e.key.toLowerCase();
+
+    buffer = buffer.slice(-6);
+
+    if (buffer === "heaven") {
+      window.location.href = "https://www.lamerzone.net/heaven";
+    }
+  }
+});
+</script>
+<script>
+function randomFlash() {
+  const delay = Math.random() * (500000 - 30000) + 30000;
+
+  setTimeout(() => {
+    document.documentElement.classList.add("invert-flash");
+
+    setTimeout(() => {
+      document.documentElement.classList.remove("invert-flash");
+      randomFlash(); // schedule next flash
+    }, 250);
+
+  }, delay);
+}
+
+randomFlash();
+</script>
+    </body>
+</html>
+
+</div>
+
+
+
+
+
+
+
+
+<!--THE END OF P1 THANK GOD-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ONLY A MOTHERFUCKING THIRD OF THE MOTHERFUCKING CODE KNOWN AS P2-->
+
+
+
+
+
+<div id="P2" style="        display: none;">
+<div class="side-rail left-rail">
+    <div class="rail-track" id="left-track"></div>
+</div>
+
+<div class="side-rail right-rail">
+    <div class="rail-track reverse" id="right-track"></div>
+</div>
+
+
+
+<script>
+
+
+
+var total_images = 171;
+
+var png_images = [
+    1, 3, 4, 5, 6, 7, 8, 11,
+    155, 156, 157, 158, 159, 160,
+    161, 162, 163, 164, 165,
+    166, 167, 168, 169, 170, 171
+];
+
+function getRandomImage() {
+
+    var random_number =
+        Math.floor(Math.random() * total_images) + 1;
+
+    var extension =
+        png_images.includes(random_number)
+        ? "png"
+        : "JPG";
+
+    return "https://www.lamerzone.net/assets/photos/"
+        + random_number
+        + "."
+        + extension;
+}
+
+
+
+function populateRail(id, amount) {
+
+    var rail = document.getElementById(id);
+
+    for (var i = 0; i < amount; i++) {
+
+        var img = document.createElement("img");
+
+        img.src = getRandomImage();
+
+        img.className = "rail-image";
+
+        rail.appendChild(img);
+    }
+
+
+    rail.innerHTML += rail.innerHTML;
+}
+
+
+populateRail("left-track", 15);
+populateRail("right-track", 15);
+
+</script>
+
+    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+
+</head>
+
+<head>
+    <div class="scroll-left">
+    <span class="terminal" style="color:brown;"> TIME IS A RELATIVE CONCEPT THERE ARE NO WEEKS NO NEED FOR WEEKLY NEWS </span> 
+    </div>
+
+</head>
+<center>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<h1  class="rotated"> --LAMERZONE.NET-- </H1>
+    <h6>        H6 style=""</h6>
+<p>/\ /\ /\ ꪊᦓꫀᠻꪊꪶ ꪶ꠸ꪀᛕᦓ  /\ /\ /\/p> </p>
+
+<br>
+<img src="https://www.lamerzone.net/assets/NATUREPOSTER1.gif" style="width: 400; height: 225  position: absolute;
+  top: 15%;
+  left: 35%;
+  margin-top: 500px;
+  margin-left: 500px;">
+<div class="rotated3"> <a class="" href="https://www.lamerzone.net/info"> So... what is this site? </a> </div> <div class="rotated4"> <a class="a" href="https://www.lamerzone.net/info/story"> The story of Lamerzone </a> </div> <a class="a" href="https://www.lamezone.net/"> Redirect back to the much better and cooler lamezone </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<style>
+table.GeneratedTable {
+  width: 769px;
+  background-color: #000000;
+border-collapse: separate;
+  border-width: 7px;
+  border-color: #494F52;
+  border-style: inset;
+  color: #143333;
+}
+
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 7px;
+  border-color: #436967;
+  border-style: inset;
+  padding: 1px;
+}
+
+table.GeneratedTable thead {
+  background-color: #184141;
+}
+</style>
+
+<br>
+
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><img src="https://lamerzone.net/warning-broke.png"></img><br></center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#ff00ba">
+<center>
+  <style>.container21 {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+.background-text {
+  font-size: 12px;
+  color: gray;
+}
+.overlay-text {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  font-size: 12px;
+  color: rgb(56, 40, 40);
+  z-index: 10;
+  text-shadow: 2px 2px 4px #000;
+}</style>
+  <div class="container21">
+  <p class="background-text"><br> This site is in a very early stage, with it barely being held together with gaffa tape and string. i am currently trying to make it better, but this will take a VERY LONG TIME. i will include a list of things to to below. <br>
+    <br>  -A̶d̶d̶ ̶i̶s̶s̶o̶ ̶c̶o̶m̶m̶e̶n̶t̶s̶ ̶(̶c̶u̶r̶r̶e̶n̶t̶l̶y̶ ̶b̶e̶i̶n̶g̶ ̶d̶o̶n̶e̶)̶   I ADDED IT CHECK THE BOTTOM OF THE PAGE
+    <br> -̶A̶d̶d̶ ̶a̶ ̶c̶h̶a̶n̶g̶e̶l̶o̶g̶
+    <br> -Redesign the entire site so it doesn't look like i did it in 10 minutes (which i definitely didn't...)
+    <br> -Finish off the <a href="https://sirinsyaoicorner.com" class="rainbow"> Sirin's yaoi corner </a> partnership and kickstarter <a style="color: red;" href="https://www.lamerzone.net/kickstarter" > (GIVE US MONEY VILE WORM) </a>
+    <br> -Maybe post some interesting stuff about the music i'm making, or the webcomic i'm doig
+    <br> -̶S̶t̶o̶p̶ ̶a̶d̶d̶i̶n̶g̶ ̶s̶t̶u̶p̶i̶d̶ ̶s̶t̶u̶f̶f̶ ̶i̶ ̶d̶o̶n̶'̶t̶ ̶n̶e̶e̶d̶ ̶a̶n̶y̶m̶o̶r̶e̶ ̶o̶n̶l̶i̶n̶e̶ ̶e̶m̶u̶l̶a̶t̶o̶r̶s̶
+    <br> -Do and post the webcomic (see story page) <br>
+    <br>
+    <br> <br></p>
+  <p class="overlay-text">A MANIFESTO AGAINST NATURE: WE ARE HUMANS, WE ARE NOT ANIMALS. WE MUST STRIVE TO SEPERATE OURSELVES FROM THE ANIMALS THAT ARE THE NATURE. KILL THE NATURE BEFORE IT KILLS US. NATURE IS DYING AND SO ARE WE, SO WE MUST BE LAST TO FALL. NO MORE VILE WORMS, WORMS ARE NATURE.</p>
+</div>
+
+
+    
+</font>
+</center>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><script type="text/javascript">
+          var total_images = 8;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<img src="https://www.lamerzone.net/assets/slownotice.gif"></a>';
+                    random_img[0] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ.png"></a>';  
+                    random_img[1] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_head2.png"> </a>';
+                    random_img[2] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_head3.png"> </a>';
+                    random_img[3] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_HEAD4.png"> </a>';
+                    random_img[4] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_HEAD5.png"> </a>';
+                    random_img[5] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_HEAD6.png"> </a>';
+                    random_img[6] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_HEAD7.png"> </a>';
+                    random_img[7] = '<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_head1.png"> </a>';
+                  
+
+          document.write(random_img[random_number]);
+      </script>
+
+          </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#ff00ba">
+<center class="rotated2">
+    
+    <br> YOUR HELP IS NEEDED <br>
+
+    <br> DO YOU HAVE AN IDEA OF HOW TO DESIGN THIS SITE? PLEASE, I NEED TO OVERHAUL THIS AWFUL LOOKING PAGE AND COME UP WITH A GENUINE <p class="rainbow"> PREPPY AESTHETIC</p> TO THIS SITE. PLEASE. IT LOOKS SO ASS IT HURTS SOMETIMES. SAVE ME FROM RED ON GREY HELL.
+
+</font>
+</center> 
+</table>
+<br> <br> <br>
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><img src="https://www.lamerzone.net/betterback.png"></img><br></center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#bbbbbb"> <div class="terminal">
+          apologies! our site was in development, but has been trashed over the ages. this is no longer any good. i advise you leave now.
+
+
+
+
+
+
+
+
+
+
+          <br>
+           
+          <br>
+
+          <br>
+          it seems like you made it to the wrong site at the wrong time. if you would liek to try your luck again, please refresh and come out luckier. the rng gods must not like you! if not, leave us alone. head back to lamezone<br>
+      </div>
+</font>
+</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<a style="color: red; font-size: 50px" > PLEASE EXIT TO A BETTER LESS BROKEN SITE THIS INSTANT, HEAD TO LAMEZONE.NET </a> <br> 
+<br>
+<br>
+<br>
+<br>
+ 
+<a href="https://www.lamezone.net/" >
+<img src="https://www.lamerzone.net/assets/photos/phase2/LZ_HEAD4.png" href="https://www.lamezone.net" ></img> <br>
+</a>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<A HREF="https://www.deathcult.fun/" id=watermark3>
+<IMG SRC="https://www.deathcult.fun/idcflogo.png" href="https://deathcult.fun" width=100 height=43.5>
+<br id=watermark3> Join The Cult </a></font> <img  src="https://www.lamerzone.net/assets/resz-spinlogo.gif" id="watermark""></img> <br>  
+<img src="https://www.lamerzone.net/assets/lamerzoneblinkiebutsobad.gif" id=watermark2> <br>
+    </center>
+
+  <script data-isso="https://comments.lamerzone.net/"
+        src="https://comments.lamerzone.net/js/embed.min.js"></script>
+
+<section id="isso-thread">
+    <noscript>Javascript needs to be activated to view comments.</noscript>
+</section>
+
+<script>
+function randomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+}
+
+function flashEffect() {
+  const main = document.getElementById('main-page');
+
+  main.style.filter = "invert(1) hue-rotate(180deg)";
+
+  setTimeout(() => {
+    main.style.filter = "none";
+
+    setTimeout(flashEffect, randomInterval(30, 500));
+  }, 500);
+}
+
+setTimeout(flashEffect, randomInterval(30, 500));
+</script>
+<script>
+let buffer = "";
+
+document.addEventListener("keydown", (e) => {
+  if (e.key.length === 1) {
+    buffer += e.key.toLowerCase();
+
+    buffer = buffer.slice(-6);
+
+    if (buffer === "heaven") {
+      window.location.href = "https://www.lamerzone.net/heaven";
+    }
+  }
+});
+</script>
+
+    </body>
+
+    </div>
+<!-- THAT THIRDOF THE MOTHERFUCKING CODE END-->
+
+
+
+
+
+
+
+
+
+
+
+<!-- P3 START-->
+
+
+
+
+
+
+<div id="P3" style="        display: none;">
+
+<h1 style="font-family: "Brush Script MT", cursive; font-size: 100px; color: #ff00ba;"> Lamerzone.net: born anew </h1>
+ </div>
+
+
+
+
+
+
+
+
+
+<!-- END OF TOMFOOLERY-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- do these gaps really need to be so big?--> <!-- yes they do -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- i just made it bigger. fuck you.-->
+
+
+
+
+
+    <!-- AWFUL RANDOMIZER-->
+<script>
+
+let randomNumber = Math.floor(Math.random() * 3) + 1;
+ 
+window.onload = function() {
+
+    if (randomNumber == 1) {
+            document.getElementById("P1").style.display = "";
+            document.getElementById("P2").style.display = "none";
+            document.getElementById("P3").style.display = "none";  
+
+}
+
+    if (randomNumber == 2) {
+            document.getElementById("P1").style.display = "none";
+            document.getElementById("P2").style.display = "";
+            document.getElementById("P3").style.display = "none";  
+}
+
+
+    if (randomNumber == 3) {
+            document.getElementById("P1").style.display = "none";
+            document.getElementById("P2").style.display = "none";
+            document.getElementById("P3").style.display = "";  
+        
+
+}
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- broken version: <script>
+    function isDisplayed(el) {
+        return el && window.getComputedStyle(el).display !== 'none';
+    }
+
+    (function() {
+        const P2 = document.getElementById('P2');
+        if (isDisplayed(P2)) {
+            const titles = [
+                'Lamerzone.net?',
+                'LIMERZONE',
+                'BROKEN MESS OF CODE',
+                'Lamerzone.net - NATURE NATUERE NATUER NO MORE NATURE KILL NATURE',
+                '01001100 01100001 01101101 01100101 01110010 01111010 01101111 01101110 01100101 00101110 01101110 01100101 01110100 00100000 00101101 00100000 01100100 01101001 01100111 01101001 01110100 01100001 01101100 00100000 01110110 01101111 01101101 01101001 01110100 00100001'
+            ]; // partially stolen from stackoverflow love you guys 
+            const title = titles[Math.floor(Math.random() * titles.length)];
+            document.title = title;
+        } else {
+             (function() {
+        const P1 = document.getElementById('P1');
+              if (isDisplayed(P1)) {
+              const titles = [
+                  'Lamerzone.net - the longest string of spaghetti can be turned into almost art',
+                  'Lamerzone.net - Since lamerzone was taken :3',
+                  'Lamerzone.net - digital vomit !',
+                  'Lamerzone.net - Ideally they\'d learn...',
+                  'Lamerzone.net - It\'s cute!'
+              ]; // againpartially stolen from stackoverflow love you guys 
+              const title = titles[Math.floor(Math.random() * titles.length)];
+              document.title = title;
+          } else {
+               (function() {
+        const P3 = document.getElementById('P3');
+                  if (isDisplayed(P3)) {
+              const titles = [
+                  'Lamerzone.net - the longest string of spaghetti can be turned into almost art',
+                  'Lamerzone.net - Since lamerzone was taken :3',
+                  'Lamerzone.net - digital vomit !',
+                  'Lamerzone.net - Ideally they\'d learn...',
+                  'Lamerzone.net - It\'s cute!'
+              ]; // againpartially stolen from stackoverflow love you guys 
+              const title = titles[Math.floor(Math.random() * titles.length)];
+              document.title = title;
+          } else {
+                        console.log("hahah");
+
+          }
+        }
+    })();
+</script> -->
+<!--<script>
+    function isDisplayed(el) {
+        return el && window.getComputedStyle(el).display !== 'none';
+    }
+
+    const titlesP2 = [
+        'Lamerzone.net?',
+        'LIMERZONE',
+        'BROKEN MESS OF CODE',
+        'Lamerzone.net - NATURE NATUERE NATUER NO MORE NATURE KILL NATURE',
+        '01001100 01100001 01101101 01100101 01110010 01111010 01101111 01101110 01100101 00101110 01101110 01100101 01110100 00100000 00101101 00100000 01100100 01101001 01100111 01101001 01110100 01100001 01101100 00100000 01110110 01101111 01101101 01101001 01110100 00100001'
+    ];
+
+    const titlesP1 = [
+        'Lamerzone.net - the longest string of spaghetti can be turned into almost art',
+        'Lamerzone.net - Since lamerzone was taken :3',
+        'Lamerzone.net - digital vomit !',
+        'Lamerzone.net - Ideally they\'d learn...',
+        'Lamerzone.net - It\'s cute!'
+    ];
+
+    const titlesP3 =[
+        'Lamerzone.net - the longest string of spaghetti can be turned into almost art',
+        'Lamerzone.net - Since lamerzone was taken :3',
+        'Lamerzone.net - digital vomit !',
+        'Lamerzone.net - Ideally they\'d learn...',
+        'Lamerzone.net - It\'s cute!'
+    ];
+
+    const P2 = document.getElementById('P2');
+    const P1 = document.getElementById('P1');
+    const P3 = document.getElementById('P3');
+
+    if (isDisplayed(P2)) {
+        document.title = titlesP2[Math.floor(Math.random() * titlesP2.length)];
+    } else if (isDisplayed(P1)) {
+        document.title = titlesP1[Math.floor(Math.random() * titlesP1.length)];
+    } else if (isDisplayed(P3)) {
+        document.title = titlesP3[Math.floor(Math.random() * titlesP3.length)];
+    } else {
+        console.log("hahah");
+    }
+</script> other not working one fuck my chungus life i hate javascript i wish i could do this in python fuck brendan eich-->
+<!--im having a fucking breakdown just let me code html not javascript-->
+
+
+
+
+<script> //THIS ONE REALLY WORKS NO LONGER FUCK MY CHUNGUS LIFE
+    function isDisplayed(el) {
+        return el && window.getComputedStyle(el).display !== 'none';
+    }
+
+    const titlesP2 = [
+        'Lamerzone.net?',
+        'LIMERZONE',
+        'BROKEN MESS OF CODE',
+        'Lamerzone.net - NATURE NATUERE NATUER NO MORE NATURE KILL NATURE',
+        '01001100 01100001 01101101 01100101 01110010 01111010 01101111 01101110 01100101 00101110 01101110 01100101 01110100 00100000 00101101 00100000 01100100 01101001 01100111 01101001 01110100 01100001 01101100 00100000 01110110 01101111 01101101 01101001 01110100 00100001'
+    ];
+
+    const titlesP1 = [
+        'Lamerzone.net - the longest string of spaghetti can be turned into almost art', // i'd like to tell you a story, boys and girls. during this, which i was coding on vs code, which i kinda hate actually im changing to notepad++ after this, and they have this really fucking annoying autocomplete feature. i was writing lamerzone.net - the biggest piece of spaghetti, or something, and it decided to suggest an autocomplete of "the biggest piece of shit on the internet", and my jaw droppped. how could it say this? my code surely isn't that bad... surely the real world from andrew tate is worse? but no. it chose ME, ME! fml i hate this, heree's a link to a screenshot https://eu1-zmud.zoho.eu/zm/ImageDisplay?na=8624968000000002002&nmsgId=1787153803111013700&f=1.png&mode=inline&cid=0.1787265220.3381033497004772476.1a01aaae765__inline__img__src& thanks for listening to my rambles in the source code of madness
+        'Lamerzone.net - digital vomit !',
+        'Lamerzone.net - Ideally they\'d learn...',
+        'Lamerzone.net - It\'s cute!'
+    ];
+
+    const titlesP3 = [
+        'Lamerzone.net - nature was dieing!',
+        'Lamerzone.net - taken no more!',
+        'Lamerzone.net - getting away from tim burners lee!',
+        'Lamerzone.net - Free-sourced vomit!',
+        'Lamerzone.net - Nature was dieing!']; 
+
+    const P1 = document.getElementById('P1');
+    const P2 = document.getElementById('P2');
+    const P3 = document.getElementById('P3');
+
+    function updateTitle() {
+        if (isDisplayed(P2)) {
+            document.title = titlesP2[Math.floor(Math.random() * titlesP2.length)];
+        } else if (isDisplayed(P1)) {
+            document.title = titlesP1[Math.floor(Math.random() * titlesP1.length)];
+        } else if (isDisplayed(P3)) {
+            document.title = titlesP3[Math.floor(Math.random() * titlesP3.length)];
+        } else {
+            console.log("No matching element visible");
+        }
+    }
+
+    updateTitle();
+
+    const observer = new MutationObserver(updateTitle);
+
+    [P1, P2, P3].forEach(el => {
+        if (el) {
+            observer.observe(el, {
+                attributes: true,
+                attributeFilter: ['style', 'class'], 
+                subtree: false
+            });
+        }
+    });
+
+
+ // i had to dm someone better at javascript to do this fml 
+</script>
+<script>
+
+function isDisplayed(el) {
+    return el && window.getComputedStyle(el).display !== 'none';
+}
+
+const backgrounds = {
+    P1: 'url("https://lamerzone.net/wp.jpg")',
+    P2: 'url("https://lamerzone.net/wp_broke.png")',
+    P3: 'url("https://lamerzone.net/assets/totalmessbg.png")'
+};
+
+window.addEventListener("load", function() {
+
+    const P1 = document.getElementById('P1');
+    const P2 = document.getElementById('P2');
+    const P3 = document.getElementById('P3');
+
+    function updateBackground() {
+
+        if (isDisplayed(P2)) {
+            document.body.style.backgroundImage = backgrounds.P2;
+
+        } else if (isDisplayed(P1)) {
+            document.body.style.backgroundImage = backgrounds.P1;
+
+        } else if (isDisplayed(P3)) {
+            document.body.style.backgroundImage = backgrounds.P3;
+
+        }
+    }
+
+    // Set the initial background
+    updateBackground();
+
+    // Watch for P1/P2/P3 changing
+    const observer = new MutationObserver(updateBackground);
+
+    [P1, P2, P3].forEach(el => {
+        if (el) {
+            observer.observe(el, {
+                attributes: true,
+                attributeFilter: ['style', 'class']
+            });
+        }
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
+
+
+</html>
