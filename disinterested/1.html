@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  
+  
+
+<IMG SRC="http://2.bp.blogspot.com/-8ChQ3SBxYOY/U9bSBt4bcMI/AAAAAAAARDE/zLDJ1kP903A/s1600/1.png" name="VCRImage" 
+
+>
+
+
+
+
+<style>
+img[name=VCRImage]:hover
+{
+  cursor:pointer;
+}</style>
+
+<script>//Select all elements on the page with the name attribute equal to VCRImage
+var images = document.querySelectorAll('[name=VCRImage]');
+
+//For each image bind the click event
+for(var i=0; i < images.length; i++)
+{
+  var image = images[i];
+  //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener
+  image.addEventListener('click', imageClicked.call(image), false);
+}
+
+function imageClicked()
+{
+  //get images in the set
+  var imageSet = this.getAttribute('data-altsrc').split(',');
+  
+  //Use a closure to wrap the counter variable
+  //so each image element has their own unique counter
+  var counter = 0;
+  return function(event)
+  {
+    //Increment counter
+    counter++;
+    //The context of "this" is the image element
+    //Use a modulus
+    this.src = imageSet[counter % imageSet.length];
+  }
+}
+</script>
+</body>
+  
+</html>
