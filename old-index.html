@@ -1,0 +1,579 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<div class="side-rail left-rail">
+    <div class="rail-track" id="left-track"></div>
+</div>
+
+<div class="side-rail right-rail">
+    <div class="rail-track reverse" id="right-track"></div>
+</div>
+
+<style>
+
+
+
+.side-rail {
+
+    position: fixed;
+
+    top: 0;
+
+    width: 220px;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.left-rail {
+    left: 0;
+}
+
+.right-rail {
+    right: 0;
+}
+
+
+
+.rail-track {
+
+    display: flex;
+
+    flex-direction: column;
+
+    animation: scrollDown 60s linear infinite;
+}
+
+.reverse {
+    animation: scrollUp 60s linear infinite;
+}
+
+
+
+.rail-image {
+
+    width: 200px;
+
+    margin: 8px auto;
+
+    display: block;
+
+    image-rendering: pixelated;
+
+    border: 2px solid #333;
+
+    opacity: 0.9;
+}
+
+
+
+center,
+table,
+.scroll-left,
+h1,
+h6,
+p,
+iframe,
+section {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+@keyframes scrollDown {
+
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes scrollUp {
+
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+
+    .side-rail {
+        display: none;
+    }
+}
+
+</style>
+
+<script>
+
+
+
+var total_images = 171;
+
+var png_images = [
+    1, 3, 4, 5, 6, 7, 8, 11,
+    155, 156, 157, 158, 159, 160,
+    161, 162, 163, 164, 165,
+    166, 167, 168, 169, 170, 171
+];
+
+function getRandomImage() {
+
+    var random_number =
+        Math.floor(Math.random() * total_images) + 1;
+
+    var extension =
+        png_images.includes(random_number)
+        ? "png"
+        : "JPG";
+
+    return "https://www.lamerzone.net/assets/photos/"
+        + random_number
+        + "."
+        + extension;
+}
+
+
+
+function populateRail(id, amount) {
+
+    var rail = document.getElementById(id);
+
+    for (var i = 0; i < amount; i++) {
+
+        var img = document.createElement("img");
+
+        img.src = getRandomImage();
+
+        img.className = "rail-image";
+
+        rail.appendChild(img);
+    }
+
+    /* duplicate for seamless looping */
+
+    rail.innerHTML += rail.innerHTML;
+}
+
+
+populateRail("left-track", 15);
+populateRail("right-track", 15);
+
+</script>
+<style>
+ #watermark2 {
+   position: fixed; 
+   bottom: 40px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 20px; 
+   color: black; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ } 
+ #watermark3 {
+   position: fixed; 
+   bottom: 100px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 20px; 
+   color: black; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+ #watermark {
+   position: fixed; 
+   bottom: 10px; 
+   right: 10px; 
+   opacity: 0.5;
+   font-size: 24px; 
+   color: gray; 
+   z-index: 9999; 
+   user-select: none; 
+   pointer-events: none; 
+ }
+
+.scroll-left {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  color: #bbb;
+}
+
+.scroll-left span {
+  position: absolute;
+  white-space: nowrap;      
+  display: inline-block;    
+  top: 50%;                  
+  transform: translate(100%, -50%);
+  font-size: 18px;        
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translate(100%, -50%); }
+  100% { transform: translate(-100%, -50%); }
+}
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+    .a {
+border: 6px grey; border-style: groove;
+}
+    .terminal {
+  background-color: #000000;
+  color: #bbbbbb;
+  font-family: "Courier New", Courier, monospace;
+  padding: 15px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.4;
+}
+    .rainbow {
+background: linear-gradient(0deg,
+rgba(255,0,0,1) 0%,
+rgba(241,255,0,1) 36%,
+rgba(0,142,255,1) 71%,
+rgba(251,0,255,1) 91%
+);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+  body {
+    zoom: 200%; 
+}
+a:active {
+border: 10px grove black; 
+background-color: black; 
+}
+
+</style>
+    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lamerzone: ideally they'd learn...</title>
+<link rel="stylesheet" href="https://lamerzone.net/mystyle.css">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    transition: none; 
+    zoom: 200%;
+  }
+.invert-flash {
+  filter: invert(1) hue-rotate(180deg) contrast(1.5);
+}
+ 
+  .scroll-left {
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    color: #bbb;
+  }
+
+  .scroll-left span {
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    top: 50%;
+    transform: translate(100%, -50%);
+    font-size: 18px;
+    animation: scroll-left 15s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translate(100%, -50%); }
+    100% { transform: translate(-100%, -50%); }
+  }
+
+  .a { border: 6px grey; border-style: groove; }
+
+  .terminal {
+    background-color: #000000;
+    color: #bbbbbb;
+    font-family: "Courier New", Courier, monospace;
+    padding: 15px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .rainbow {
+    background: linear-gradient(0deg,
+    rgba(255,0,0,1) 0%,
+    rgba(241,255,0,1) 36%,
+    rgba(0,142,255,1) 71%,
+    rgba(251,0,255,1) 91%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  table.GeneratedTable {
+    width: 769px;
+    background-color: #000000;
+    border-collapse: separate;
+    border-width: 7px;
+    border-color: #332213;
+    border-style: inset;
+    color: #ff0000;
+  }
+
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 7px;
+    border-color: #332213;
+    border-style: inset;
+    padding: 1px;
+  }
+
+  table.GeneratedTable thead {
+    background-color: #400B35;
+  }
+</style>
+</head>
+
+<head>
+    <div class="scroll-left">
+    <span class="terminal"> weekly news: free! free! free! or not</span> 
+    </div>
+<title>Lamerzone.net - since Lamezone was taken :3</title>
+<link rel="stylesheet" href="https://lamerzone.net/mystyle.css">
+
+</head>
+<center>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<h1> --LAMERZONE.NET-- </H1>
+    <h6>        A NOOBRR production</h6>
+<p>\/ \/ \/ 𝓾𝓼𝓮𝓯𝓾𝓵 𝓵𝓲𝓷𝓴𝓼 \/ \/ \/</p>
+
+<br>
+  
+<a class="a" href="https://www.lamerzone.net/info"> So... what is this site? </a> <a class="a" href="https://www.lamerzone.net/info/story"> The story of Lamerzone </a> <a class="a" href="https://www.lamezone.net/"> Redirect back to the much better and cooler lamezone </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<style>
+table.GeneratedTable {
+  width: 769px;
+  background-color: #000000;
+border-collapse: separate;
+  border-width: 7px;
+  border-color: #494F52;
+  border-style: inset;
+  color: #143333;
+}
+
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 7px;
+  border-color: #436967;
+  border-style: inset;
+  padding: 1px;
+}
+
+table.GeneratedTable thead {
+  background-color: #184141;
+}
+</style>
+
+<br>
+
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><img src="https://lamerzone.net/assets/warning.png"></img><br></center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#ff00ba">
+<center>
+<br> This site is in a very early stage, with it barely being held together with gaffa tape and string. i am currently trying to make it better, but this will take a VERY LONG TIME. i will include a list of things to to below. <br>
+    <br>  -A̶d̶d̶ ̶i̶s̶s̶o̶ ̶c̶o̶m̶m̶e̶n̶t̶s̶ ̶(̶c̶u̶r̶r̶e̶n̶t̶l̶y̶ ̶b̶e̶i̶n̶g̶ ̶d̶o̶n̶e̶)̶   I ADDED IT CHECK THE BOTTOM OF THE PAGE
+    <br> -̶A̶d̶d̶ ̶a̶ ̶c̶h̶a̶n̶g̶e̶l̶o̶g̶
+    <br> -Redesign the entire site so it doesn't look like i did it in 10 minutes (which i definitely didn't...)
+    <br> -Finish off the <a href="https://sirinsyaoicorner.com" class="rainbow"> Sirin's yaoi corner </a> partnership and kickstarter <a style="color: red;" href="https://www.lamerzone.net/kickstarter" > (GIVE US MONEY VILE WORM) </a>
+    <br> -Maybe post some interesting stuff about the music i'm making, or the webcomic i'm doig
+    <br> -̶S̶t̶o̶p̶ ̶a̶d̶d̶i̶n̶g̶ ̶s̶t̶u̶p̶i̶d̶ ̶s̶t̶u̶f̶f̶ ̶i̶ ̶d̶o̶n̶'̶t̶ ̶n̶e̶e̶d̶ ̶a̶n̶y̶m̶o̶r̶e̶ ̶o̶n̶l̶i̶n̶e̶ ̶e̶m̶u̶l̶a̶t̶o̶r̶s̶
+    <br> -Do and post the webcomic (see story page) <br>
+    <br>
+    <br> <br>
+
+    
+</font>
+</center>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<img src="https://www.lamerzone.net/assets/slownotice.gif"></a>';
+                    random_img[0] = '<img src="https://www.lamerzone.net/assets/slownotice.gif"></a>';
+                    random_img[1] = '<img src="https://www.lamerzone.net/assets/fastnotice.gif"></a>';
+
+          document.write(random_img[random_number]);
+      </script>
+
+          </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#ff00ba">
+<center>
+    
+    <br> YOUR HELP IS NEEDED <br>
+
+    <br> DO YOU HAVE AN IDEA OF HOW TO DESIGN THIS SITE? PLEASE, I NEED TO OVERHAUL THIS AWFUL LOOKING PAGE AND COME UP WITH A GENUINE <p class="rainbow"> PREPPY AESTHETIC</p> TO THIS SITE. PLEASE. IT LOOKS SO ASS IT HURTS SOMETIMES. SAVE ME FROM RED ON GREY HELL.
+
+</font>
+</center> 
+</table>
+<br> <br> <br>
+
+<table class="GeneratedTable">
+  <thead>
+    <tr>
+      <th><center><img src="https://lamerzone.net/assets/changelog_resz.png"></img><br></center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font color="#bbbbbb"> <div class="terminal">
+                      <br>optimistic@lamerzone : ~# -- 24/5/26 whee!!! look at those photos go!!! i made scrolly things by looking shit up for ages and getting scared at how little good html i know!!!! i love stackoverflow!!!!!! but yeah it works now but it'll probably break if i prod at it so enjoy it whilst you can ladies  <br> 
+
+               <br>optimistic@lamerzone : ~# -- 7/4/26 I took a lot of photos. i'm using them as background noise, and you can see the start of it in <a href="https://lamerzone.net/info">the info page</a> <br> 
+       <br>optimistic@lamerzone : ~# -- 28/3/26 i understand what i'm gonna do for the design change now, i think. but first, i've added something. wait for 30-500 seconds on this site, see if you can notice it. this is only to be slightly more ambient/annoying :3 <br>
+    <br>optimistic@lamerzone : ~# -- 14/3/26 for the past week, i've been trying to make this weekly new thing. i should change it weekly, but i may forget. i'm fkn tired, and it's not workint that well ----update now it works yay ig i am so tired <br>
+       <br>optimistic@lamerzone : ~# -- 4/3/26 started work on the "people" page, along with fixing the broken info page.
+        <br>optimistic@lamerzone : ~# -- 2/3/26 removed all the games. these were cloggin up my repo, and i basically just added these for jokes. now i can get onto doing more serious and productive stuff on this site. <br>
+        <br>optimistic@lamerzone : ~# Finally, I've remembered to add a changelog. I don't know the dates for anything before 2/3/26, which is when i started. so, here we go! <br>
+        <br>optimistic@lamerzone : ~# -- about 2 weeks before last - - I ADDED ISSO COMMENTS! FINALLY, I SPENT THE £1.20 FOR THE VPS AND ADDED ISSO COMMENTS. Don't put anything innapropriate, since i will find you. <img src="https://lamerzone.net/assets/cursor.png"></img>
+
+
+      </div>
+</font>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+  
+<p style="font-size: 12px;"> For enquiwies, pwease emaiw enquiwies@lamerzone.net :3</p>
+<p style="font-size: 12px;"> also check out this epic bandcamp </p><iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/track=3068268814/size=small/bgcol=333333/linkcol=e32c14/transparent=true/" seamless><a href="https://isa-b.bandcamp.com/track/demo-1">demo 1 by isa-b</a></iframe>
+<A HREF="https://www.deathcult.fun/" id=watermark3>
+<IMG SRC="https://www.deathcult.fun/idcflogo.png" href="https://deathcult.fun" width=100 height=43.5>
+<br id=watermark3> Join The Cult </a></font> <img  src="https://www.lamerzone.net/assets/resz-spinlogo.gif" id="watermark""></img> <br>  
+<img src="https://www.lamerzone.net/assets/lamerzoneblinkiebutsobad.gif" id=watermark2> <br>
+    </center>
+
+  <script data-isso="https://comments.lamerzone.net/"
+        src="https://comments.lamerzone.net/js/embed.min.js"></script>
+
+<section id="isso-thread">
+    <noscript>Javascript needs to be activated to view comments.</noscript>
+</section>
+
+<script>
+function randomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min) * 1000;
+}
+
+function flashEffect() {
+  const main = document.getElementById('main-page');
+
+  main.style.filter = "invert(1) hue-rotate(180deg)";
+
+  setTimeout(() => {
+    main.style.filter = "none";
+
+    setTimeout(flashEffect, randomInterval(30, 500));
+  }, 500);
+}
+
+setTimeout(flashEffect, randomInterval(30, 500));
+</script>
+<script>
+let buffer = "";
+
+document.addEventListener("keydown", (e) => {
+  if (e.key.length === 1) {
+    buffer += e.key.toLowerCase();
+
+    buffer = buffer.slice(-6);
+
+    if (buffer === "heaven") {
+      window.location.href = "https://www.lamerzone.net/heaven";
+    }
+  }
+});
+</script>
+<script>
+function randomFlash() {
+  const delay = Math.random() * (500000 - 30000) + 30000;
+
+  setTimeout(() => {
+    document.documentElement.classList.add("invert-flash");
+
+    setTimeout(() => {
+      document.documentElement.classList.remove("invert-flash");
+      randomFlash(); // schedule next flash
+    }, 250);
+
+  }, delay);
+}
+
+randomFlash();
+</script>
+    </body>
+</html>
